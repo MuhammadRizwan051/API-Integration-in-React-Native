@@ -11,7 +11,7 @@ export const GlobalStyle = StyleSheet.create({
         fontWeight: 'bold'
     },
     mainScreen: {
-        backgroundColor: '#A5D3EB',
+        
         paddingHorizontal: 40,
         paddingVertical: 15
     },
