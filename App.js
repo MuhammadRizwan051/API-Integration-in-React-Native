@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { View, Text, TouchableOpacity, Image, ScrollView, RefreshControl } from 'react-native'
+import { GlobalStyle } from './GlobalStyle';
 
 function App() {
   const [myData, setMyData] = useState([]);
@@ -27,30 +28,30 @@ function App() {
 
   return (
     <>
-      <Text style={{ backgroundColor: '#242948', paddingVertical: 15, color: 'white', fontSize: 30, fontFamily: 'cursive', textAlign: 'center', fontWeight: 'bold' }}>List of Products</Text>
+      <Text style={GlobalStyle.header}>List of Products</Text>
       <ScrollView>
         {myData.map((e, i) => (
-          <View key={i} style={{ backgroundColor: '#A5D3EB', paddingHorizontal: 40, paddingVertical:15 }}>
-            <View key={i} style={{ marginTop: 15, marginBottom: 10 }}>
-              <View style={{ backgroundColor: '#353534', paddingHorizontal: 12, paddingVertical: 5 }}>
-                <Text style={{ color: 'white', fontSize: 15, fontFamily: 'sans-serif' }}>Id: {e.id}</Text>
+          <View key={i} style={GlobalStyle.mainScreen}>
+            <View key={i} style={GlobalStyle.card}>
+              <View style={GlobalStyle.cardHeader}>
+                <Text style={GlobalStyle.cardHeadingText}>Id: {e.id}</Text>
               </View>
-              <View style={{ borderWidth: 14, borderColor: 'white',  }}>
-                <Image source={{ uri: e.image }} style={{ resizeMode: 'stretch', width: '100%', height: 200 }} />
+              <View style={GlobalStyle.cardImageContainer}>
+                <Image source={{ uri: e.image }} style={GlobalStyle.cardImage} />
               </View>
-              <View style={{ backgroundColor: '#353534', paddingHorizontal: 12, paddingVertical: 20 }}>
-                <Text style={{ color: '#E5D9B6', fontSize: 22, marginBottom:2, fontFamily: 'sans-serif', textDecorationLine:'underline', fontStyle:'italic' }}>Title</Text>
-                <Text style={{ color: 'white', fontSize: 16, fontFamily: 'cursive', marginBottom:10, }}>{e.title}</Text>
-                <Text style={{ color: '#E5D9B6', fontSize: 22, marginBottom:2, fontFamily: 'sans-serif', textDecorationLine:'underline', fontStyle:'italic' }}>Category</Text>
-                <Text style={{ color: 'white', fontSize: 16, fontFamily: 'cursive', marginBottom:10, }}>{e.category}</Text>
-                <Text style={{ color: '#E5D9B6', fontSize: 22, marginBottom:2, fontFamily: 'sans-serif', textDecorationLine:'underline', fontStyle:'italic' }}>Rate</Text>
-                <Text style={{ color: 'white', fontSize: 16, fontFamily: 'cursive', marginBottom:10, }}>{e.rating.rate}</Text>
-                <Text style={{ color: '#E5D9B6', fontSize: 22, marginBottom:2, fontFamily: 'sans-serif', textDecorationLine:'underline', fontStyle:'italic' }}>Count</Text>
-                <Text style={{ color: 'white', fontSize: 16, fontFamily: 'cursive', marginBottom:10, }}>{e.rating.count}</Text>
-                <Text style={{ color: '#E5D9B6', fontSize: 22, marginBottom:2, fontFamily: 'sans-serif', textDecorationLine:'underline', fontStyle:'italic' }}>Description</Text>
-                <Text style={{ color: 'white', fontSize: 16, fontFamily: 'cursive', marginBottom:10, textAlign:'justify' }}>{e.description}</Text>
-                <Text style={{ color: '#E5D9B6', fontSize: 22, marginBottom:2, fontFamily: 'sans-serif', textDecorationLine:'underline', fontStyle:'italic' }}>Price</Text>
-                <Text style={{ color: 'white', fontSize: 16, fontFamily: 'cursive', marginBottom:10, }}>{e.price} USD</Text>
+              <View style={GlobalStyle.cardBodyContainer}>
+                <Text style={GlobalStyle.cardBodyHeadings}>Title</Text>
+                <Text style={GlobalStyle.cardBodyPara}>{e.title}</Text>
+                <Text style={GlobalStyle.cardBodyHeadings}>Category</Text>
+                <Text style={GlobalStyle.cardBodyPara}>{e.category}</Text>
+                <Text style={GlobalStyle.cardBodyHeadings}>Rate</Text>
+                <Text style={GlobalStyle.cardBodyPara}>{e.rating.rate}</Text>
+                <Text style={GlobalStyle.cardBodyHeadings}>Count</Text>
+                <Text style={GlobalStyle.cardBodyPara}>{e.rating.count}</Text>
+                <Text style={GlobalStyle.cardBodyHeadings}>Description</Text>
+                <Text style={[GlobalStyle.cardBodyPara, { textAlign: 'justify' }]}>{e.description}</Text>
+                <Text style={GlobalStyle.cardBodyHeadings}>Price</Text>
+                <Text style={GlobalStyle.cardBodyPara}>{e.price} USD</Text>
               </View>
             </View>
           </View>
