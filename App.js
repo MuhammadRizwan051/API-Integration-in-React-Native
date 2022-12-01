@@ -27,28 +27,27 @@ function App() {
 
   return (
     <>
-      <View style={{ paddingHorizontal: 80 }}>
-        <ScrollView
-          refreshControl={
-            <RefreshControl />
-          }>
-          {myData.map((e, i) => (
-            <View key={i} style={{ borderWidth: 2, marginTop: 15, paddingVertical: 15, paddingHorizontal: 10, borderColor: 'red' }}>
-              <View>
-                <Image source={{ uri: e.image }} resizeMode='contain' style={{ width: '100%', height: 50 }} />
+      <Text style={{ backgroundColor: '#242948', paddingVertical: 15, color: 'white', fontSize: 30, fontFamily: 'verdana', textAlign: 'center', fontWeight: 'bold' }}>List of Products</Text>
+      <ScrollView>
+        {myData.map((e, i) => (
+          <View style={{ backgroundColor: '#A5D3EB', paddingHorizontal: 40, paddingVertical:15 }}>
+            <View key={i} style={{ marginTop: 15, marginBottom: 10 }}>
+              {/* <View style={{ backgroundColor: '#353534', paddingHorizontal: 12, paddingVertical: 10 }}>
+                <Text style={{ color: 'white', fontSize: 15, fontFamily: 'sans-serif' }}>Id: {e.id}</Text>
+              </View> */}
+              <View style={{ borderWidth: 14, borderColor: 'white',  }}>
+                <Image source={{ uri: e.image }} style={{ resizeMode: 'stretch', width: '100%', height: 200 }} />
               </View>
-              <View>
-
-                <Text>Id: {e.id}</Text>
-                <Text>Title: {e.title}</Text>
-                <Text style={{ color: 'blue' }}>Category: {e.category}</Text>
-                <Text>Rating: {e.rating.rate}</Text>
-                <Text>Count: {e.rating.count}</Text>
+              <View style={{ backgroundColor: '#353534', paddingHorizontal: 12, paddingVertical: 20 }}>
+                <Text style={{ color: 'white', fontSize: 16, fontFamily: 'sans-serif', marginBottom:13, }}>Title: {e.title}</Text>
+                <Text style={{ color: 'white', fontSize: 16, fontFamily: 'sans-serif', marginBottom:13, }}>Category: {e.category}</Text>
+                <Text style={{ color: 'white', fontSize: 16, fontFamily: 'sans-serif', marginBottom:13, }}>Rating: {e.rating.rate}</Text>
+                <Text style={{ color: 'white', fontSize: 16, fontFamily: 'sans-serif', marginBottom:13, }}>Count: {e.rating.count}</Text>
               </View>
             </View>
-          ))}
-        </ScrollView>
-      </View>
+          </View>
+        ))}
+      </ScrollView>
     </>
   )
 }
