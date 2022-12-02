@@ -10,10 +10,33 @@ export const GlobalStyle = StyleSheet.create({
         textAlign: 'center',
         fontWeight: 'bold'
     },
+    inputContainer: {
+        flexDirection: 'row',
+        borderWidth: 2,
+        borderColor: '#242948',
+        borderRadius: 25,
+        marginHorizontal: 10,
+        marginVertical: 10
+    },
+    inputField: {
+        width: '85%',
+        color: '#242948',
+        fontSize: 18,
+        fontFamily: 'sans-serif',
+        paddingHorizontal: 20
+    },
     mainScreen: {
-        
+
         paddingHorizontal: 40,
         paddingVertical: 15
+    },
+    headingAllItems: {
+        textAlign: 'center',
+        color: '#242948',
+        fontSize: 30,
+        fontWeight: 'bold',
+        fontStyle: 'italic',
+        textDecorationLine: 'underline'
     },
     card: {
         marginTop: 15,
