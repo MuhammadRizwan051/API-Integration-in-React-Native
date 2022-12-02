@@ -33,7 +33,7 @@ function App() {
   let searchItem = (val) => {
     setValue(val)
     console.log(value)
-    let search = myData.filter(x => x.id === value)
+    let search = myData && myData.filter(x => x.category === value)
     setFilterList([...search])
   };
   console.log(filterList)
