@@ -5,9 +5,9 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from '../screens/Home';
-import About from '../screens/About';
 import Product from '../screens/Product';
-// import About from '../screens/About';
+import SignUp from '../screens/SignUp';
+import SignIn from '../screens/SignIn';
 
 
 // function HomeScreen() {
@@ -25,8 +25,9 @@ function AppNavigation() {
     <NavigationContainer> 
       <Stack.Navigator>
         <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="About" component={About} />
         <Stack.Screen name="Product" component={Product} />
+        <Stack.Screen name="SignIn" component={SignIn} />
+        <Stack.Screen name="SignUp" component={SignUp} />
       </Stack.Navigator>
     </NavigationContainer>
   );
