@@ -26,9 +26,11 @@ export const GlobalStyle = StyleSheet.create({
         paddingHorizontal: 20
     },
     mainScreen: {
-
-        paddingHorizontal: 40,
-        paddingVertical: 15
+        width:'50%',
+        paddingHorizontal: 10,
+        paddingVertical: 15,
+        maxHeight: 400,
+        // borderWidth:5
     },
     headingAllItems: {
         textAlign: 'center',
@@ -39,8 +41,10 @@ export const GlobalStyle = StyleSheet.create({
         textDecorationLine: 'underline'
     },
     card: {
+        width:'100%',
         marginTop: 15,
-        marginBottom: 10
+        height:'100%'
+        // marginBottom: 10,
     },
     cardHeader: {
         backgroundColor: '#353534',
@@ -55,16 +59,19 @@ export const GlobalStyle = StyleSheet.create({
     cardImageContainer: {
         borderWidth: 14,
         borderColor: 'white',
+        height:'40%'
     },
     cardImage: {
         resizeMode: 'stretch',
         width: '100%',
-        height: 200
+        height: '100%'
     },
     cardBodyContainer: {
         backgroundColor: '#353534',
         paddingHorizontal: 12,
-        paddingVertical: 20
+        paddingVertical: 10,
+        height:'50%',
+        justifyContent:'center'
     },
     cardBodyHeadings: {
         color: '#E5D9B6',
@@ -77,7 +84,11 @@ export const GlobalStyle = StyleSheet.create({
     cardBodyPara: {
         color: 'white',
         fontSize: 16,
-        fontFamily: 'cursive',
+        // fontFamily: 'cursive',
+        fontStyle:'italic',
         marginBottom: 10,
+        borderBottomWidth:1,
+        borderColor:'white',
+        paddingBottom:3
     }
 })

@@ -4,7 +4,7 @@ import { Text, View, ActivityIndicator, TextInput, TouchableOpacity, Image, Scro
 import { GlobalStyle } from '../GlobalStyle'
 
 
-function Home({navigation}) {
+function Home({ navigation }) {
     const [myData, setMyData] = useState([]);
     const [isLoaded, setIsLoaded] = useState(true);
 
@@ -43,7 +43,7 @@ function Home({navigation}) {
     // console.log(value)
 
 
-    let move = (e) =>{
+    let move = (e) => {
         navigation.navigate('Product', e)
     }
 
@@ -64,10 +64,10 @@ function Home({navigation}) {
                         </TouchableOpacity>
                     </View>
                     <ScrollView>
-                        <View style={{ backgroundColor: '#A5D3EB' }}>
-                            <Text style={GlobalStyle.headingAllItems}>All Items</Text>
-                            {myData.map((e, i) => (
-                                <TouchableOpacity key={i} onPress={()=>move(e)} style={GlobalStyle.mainScreen}>
+                        <View style={{ backgroundColor: '#A5D3EB', width: '100%', height: '100%', flexWrap: 'wrap', flexDirection: 'row', }}>
+                            {/* <Text style={GlobalStyle.headingAllItems}>All Items</Text> */}
+                            {myData && myData.map((e, i) => (
+                                <TouchableOpacity key={i} onPress={() => move(e)} style={GlobalStyle.mainScreen}>
                                     <View key={i} style={GlobalStyle.card}>
                                         <View style={GlobalStyle.cardHeader}>
                                             <Text style={GlobalStyle.cardHeadingText}>Id: {e.id}</Text>
@@ -76,18 +76,18 @@ function Home({navigation}) {
                                             <Image source={{ uri: e.image }} style={GlobalStyle.cardImage} />
                                         </View>
                                         <View style={GlobalStyle.cardBodyContainer}>
-                                            <Text style={GlobalStyle.cardBodyHeadings}>Title</Text>
-                                            <Text style={GlobalStyle.cardBodyPara}>{e.title}</Text>
-                                            <Text style={GlobalStyle.cardBodyHeadings}>Category</Text>
-                                            <Text style={GlobalStyle.cardBodyPara}>{e.category}</Text>
-                                            <Text style={GlobalStyle.cardBodyHeadings}>Rate</Text>
+                                            {/* <Text style={GlobalStyle.cardBodyHeadings}>Category</Text> */}
+                                            <Text style={[GlobalStyle.cardBodyPara, {textAlign:'center'}]}>{e.category.slice(0, 1).toUpperCase() + e.category.slice(1)}</Text>
+                                            {/* <Text style={GlobalStyle.cardBodyHeadings}>Title</Text> */}
+                                            <Text style={GlobalStyle.cardBodyPara}>{e.title.slice(0, 25) + ' .....'}</Text>
+                                            {/* <Text style={GlobalStyle.cardBodyHeadings}>Rate</Text>
                                             <Text style={GlobalStyle.cardBodyPara}>{e.rating.rate}</Text>
                                             <Text style={GlobalStyle.cardBodyHeadings}>Count</Text>
                                             <Text style={GlobalStyle.cardBodyPara}>{e.rating.count}</Text>
                                             <Text style={GlobalStyle.cardBodyHeadings}>Description</Text>
-                                            <Text style={[GlobalStyle.cardBodyPara, { textAlign: 'justify' }]}>{e.description}</Text>
-                                            <Text style={GlobalStyle.cardBodyHeadings}>Price</Text>
-                                            <Text style={GlobalStyle.cardBodyPara}>{e.price} USD</Text>
+                                            <Text style={[GlobalStyle.cardBodyPara, { textAlign: 'justify' }]}>{e.description}</Text> */}
+                                            {/* <Text style={GlobalStyle.cardBodyHeadings}>Price</Text> */}
+                                            <Text style={[GlobalStyle.cardBodyPara, {textAlign:'center'}]}>{e.price} USD</Text>
                                         </View>
                                     </View>
                                 </TouchableOpacity>
