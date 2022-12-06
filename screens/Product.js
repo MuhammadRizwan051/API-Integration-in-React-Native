@@ -14,7 +14,6 @@ function Product({ navigation, route }) {
                     <View style={{ alignItems: 'center', justifyContent: 'center', height: '80%' }}>
                         <Image source={{ uri: route.params.image }} style={{ resizeMode: 'contain', width: '100%', height: 150 }} />
                     </View>
-
                 </View>
                 <View style={{ marginHorizontal: 10, paddingHorizontal: 15, paddingTop: 30, paddingBottom: 50, backgroundColor: '#344D67', borderTopRightRadius: 40, borderRadius: 40 }}>
                     <Text style={{ color: 'white', fontSize: 20 }}>$ {route.params.price}</Text>
@@ -25,7 +24,7 @@ function Product({ navigation, route }) {
                         <Text style={{ color: 'white', fontSize: 30 }}>{route.params.rating.rate}</Text>
                         <Icon name="star" size={25} color="white" />
                     </View>
-                    <View style={{ marginBottom: 50, marginTop:20}}>
+                    <View style={{ marginBottom: 50, marginTop: 20 }}>
                         <TouchableOpacity style={{ backgroundColor: 'white', paddingVertical: 10, borderRadius: 15, alignItems: 'center' }}>
                             <Text style={{ color: 'black', fontWeight: 'bold', fontSize: 18, fontStyle: 'italic', fontFamily: 'sans-serif' }}>Add to Cart</Text>
                         </TouchableOpacity>

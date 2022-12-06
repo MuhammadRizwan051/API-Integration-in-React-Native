@@ -6,10 +6,7 @@ function App() {
 
   return (
     <>
-      {/* <View>
-        <Text>App</Text> */}
       <AppNavigation />
-      {/* </View> */}
     </>
   )
 }
