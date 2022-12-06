@@ -5,7 +5,7 @@ function SignIn() {
     return (
         <>
             <View style={{ backgroundColor: '#10A19D', height: '100%' }}>
-                <View style={{ backgroundColor: 'white', height: '70%', marginTop: '30%', paddingVertical: 25, marginHorizontal: 25, borderRadius: 60 }}>
+                <View style={{ backgroundColor: 'white', height: '60%', marginTop: '40%', paddingVertical: 25, marginHorizontal: 25, borderRadius: 60 }}>
                     <Text style={{ fontSize: 26, textAlign: 'center', color: '#10A19D', fontWeight: 'bold' }}>LOG IN</Text>
                     <View style={{ alignItems: 'center', marginVertical: 10 }}>
                         <Image style={{ height: 70, width: 70 }} source={{ uri: 'https://cdn-icons-png.flaticon.com/512/74/74472.png' }} />

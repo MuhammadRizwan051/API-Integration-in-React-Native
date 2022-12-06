@@ -28,9 +28,10 @@ export const GlobalStyle = StyleSheet.create({
     mainScreen: {
         width:'50%',
         paddingHorizontal: 10,
-        paddingVertical: 15,
-        maxHeight: 400,
-        // borderWidth:5
+        paddingVertical: 5,
+        maxHeight: 350,
+        justifyContent:'center',
+        alignItems:'center',
     },
     headingAllItems: {
         textAlign: 'center',
@@ -43,13 +44,14 @@ export const GlobalStyle = StyleSheet.create({
     card: {
         width:'100%',
         marginTop: 15,
-        height:'100%'
-        // marginBottom: 10,
+        height:'100%',
     },
     cardHeader: {
         backgroundColor: '#353534',
         paddingHorizontal: 12,
-        paddingVertical: 5
+        paddingVertical: 5,
+        borderTopRightRadius:20,
+        borderTopLeftRadius:20
     },
     cardHeadingText: {
         color: 'white',
@@ -70,8 +72,10 @@ export const GlobalStyle = StyleSheet.create({
         backgroundColor: '#353534',
         paddingHorizontal: 12,
         paddingVertical: 10,
-        height:'50%',
-        justifyContent:'center'
+        height:'45%',
+        justifyContent:'center',
+        borderBottomRightRadius:20,
+        borderBottomLeftRadius:20
     },
     cardBodyHeadings: {
         color: '#E5D9B6',
@@ -84,7 +88,6 @@ export const GlobalStyle = StyleSheet.create({
     cardBodyPara: {
         color: 'white',
         fontSize: 16,
-        // fontFamily: 'cursive',
         fontStyle:'italic',
         marginBottom: 10,
         borderBottomWidth:1,

@@ -78,27 +78,7 @@ const StackNavigator = () => (
 
 const Tab = createBottomTabNavigator();
 const TabNavigator = () => (
-  <Tab.Navigator tabBarOptions={{
-    showLabel: false,
-    // style: {
-    //   position: 'absolute',
-    //   bottom: 25,
-    //   left: 20,
-    //   right: 20,
-    // height: 100,
-    // elevation: 0,
-    // borderRadius: 15,
-    // backgroundColor: 'red',
-    // shadowColor: '#7F5DF0',
-    // shadowOffset: {
-    //   width: 0,
-    //   height: 10
-    // },
-    // shadowOpacity: 0.25,
-    // shadowRadius: 3.5,
-    // elevation: 5,
-    // }
-  }} screenOptions={{ headerShown: false }}>
+  <Tab.Navigator screenOptions={{ headerShown: false, tabBarShowLabel: false }}>
     <Tab.Screen name="All" component={StackNavigator} options={{
       tabBarIcon: ({ focused }) => (
         <View style={{ alignItems: 'center', justifyContent: 'center' }}>

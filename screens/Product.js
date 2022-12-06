@@ -16,7 +16,7 @@ function Product({ navigation, route }) {
                     </View>
 
                 </View>
-                <View style={{ marginHorizontal: 10, paddingHorizontal: 15, paddingTop: 30, paddingBottom: 50, backgroundColor: '#344D67', borderTopRightRadius: 30, borderTopLeftRadius: 30 }}>
+                <View style={{ marginHorizontal: 10, paddingHorizontal: 15, paddingTop: 30, paddingBottom: 50, backgroundColor: '#344D67', borderTopRightRadius: 40, borderRadius: 40 }}>
                     <Text style={{ color: 'white', fontSize: 20 }}>$ {route.params.price}</Text>
                     <Text style={{ color: 'white', marginVertical: 15, fontStyle: 'italic', textAlign: 'justify' }}>{route.params.description.slice(0, 1).toUpperCase() + route.params.description.slice(1)}</Text>
                     <Text style={{ color: 'white' }}>Product ID: {route.params.id}</Text>
