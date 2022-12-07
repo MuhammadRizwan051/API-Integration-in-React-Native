@@ -8,12 +8,14 @@ import SignIn from '../screens/SignIn';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Image, Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/dist/MaterialIcons';
+import MyCart from '../screens/MyCart';
 
 const Stack = createNativeStackNavigator();
 const StackNavigator = () => (
   <Stack.Navigator>
     <Stack.Screen name='Home' component={Home} options={{ headerShown: false }} />
     <Stack.Screen name='Product' component={Product} />
+    <Stack.Screen name='My Cart' component={MyCart} />
   </Stack.Navigator>
 )
 

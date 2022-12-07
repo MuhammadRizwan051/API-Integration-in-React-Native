@@ -4,28 +4,28 @@ import Icon from 'react-native-vector-icons/dist/MaterialIcons';
 
 
 function Product({ navigation, route }) {
-    console.log(route.params)
+    let obj = route.params
     return (
         <>
             <ScrollView style={{ height: '100%', marginTop: 10, marginBottom: 10 }}>
-                <Text style={{ marginHorizontal: 10, backgroundColor: '#344D67', fontWeight: 'bold', textAlign: 'center', paddingVertical: 5, color: 'white', fontStyle: 'italic', fontSize: 18, borderBottomRightRadius: 20, borderBottomLeftRadius: 20 }}>{route.params.category.slice(0, 1).toUpperCase() + route.params.category.slice(1)}</Text>
+                <Text style={{ marginHorizontal: 10, backgroundColor: '#344D67', fontWeight: 'bold', textAlign: 'center', paddingVertical: 5, color: 'white', fontStyle: 'italic', fontSize: 18, borderBottomRightRadius: 20, borderBottomLeftRadius: 20 }}>{obj.category.slice(0, 1).toUpperCase() + obj.category.slice(1)}</Text>
                 <View style={{ paddingHorizontal: 30, paddingVertical: 30, backgroundColor: 'white', height: '40%' }}>
-                    <Text style={{ color: 'black', fontSize: 20, fontWeight: 'bold', fontStyle: 'italic', textDecorationLine: 'underline', textAlign: 'center', marginTop: 0 }}>{route.params.title}</Text>
+                    <Text style={{ color: 'black', fontSize: 20, fontWeight: 'bold', fontStyle: 'italic', textDecorationLine: 'underline', textAlign: 'center', marginTop: 0 }}>{obj.title}</Text>
                     <View style={{ alignItems: 'center', justifyContent: 'center', height: '80%' }}>
-                        <Image source={{ uri: route.params.image }} style={{ resizeMode: 'contain', width: '100%', height: 150 }} />
+                        <Image source={{ uri: obj.image }} style={{ resizeMode: 'contain', width: '100%', height: 150 }} />
                     </View>
                 </View>
                 <View style={{ marginHorizontal: 10, paddingHorizontal: 15, paddingTop: 30, paddingBottom: 50, backgroundColor: '#344D67', borderTopRightRadius: 40, borderRadius: 40 }}>
-                    <Text style={{ color: 'white', fontSize: 20 }}>$ {route.params.price}</Text>
-                    <Text style={{ color: 'white', marginVertical: 15, fontStyle: 'italic', textAlign: 'justify' }}>{route.params.description.slice(0, 1).toUpperCase() + route.params.description.slice(1)}</Text>
-                    <Text style={{ color: 'white' }}>Product ID: {route.params.id}</Text>
-                    <Text style={{ color: 'white' }}>In Stock: {route.params.rating.count}</Text>
+                    <Text style={{ color: 'white', fontSize: 20 }}>$ {obj.price}</Text>
+                    <Text style={{ color: 'white', marginVertical: 15, fontStyle: 'italic', textAlign: 'justify' }}>{obj.description.slice(0, 1).toUpperCase() + obj.description.slice(1)}</Text>
+                    <Text style={{ color: 'white' }}>Product ID: {obj.id}</Text>
+                    <Text style={{ color: 'white' }}>In Stock: {obj.rating.count}</Text>
                     <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                        <Text style={{ color: 'white', fontSize: 30 }}>{route.params.rating.rate}</Text>
+                        <Text style={{ color: 'white', fontSize: 30 }}>{obj.rating.rate}</Text>
                         <Icon name="star" size={25} color="white" />
                     </View>
                     <View style={{ marginBottom: 50, marginTop: 20 }}>
-                        <TouchableOpacity style={{ backgroundColor: 'white', paddingVertical: 10, borderRadius: 15, alignItems: 'center' }}>
+                        <TouchableOpacity onPress={() => navigation.navigate('My Cart', obj)} style={{ backgroundColor: 'white', paddingVertical: 10, borderRadius: 15, alignItems: 'center' }}>
                             <Text style={{ color: 'black', fontWeight: 'bold', fontSize: 18, fontStyle: 'italic', fontFamily: 'sans-serif' }}>Add to Cart</Text>
                         </TouchableOpacity>
                     </View>
