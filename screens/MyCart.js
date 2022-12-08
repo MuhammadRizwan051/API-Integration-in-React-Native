@@ -6,18 +6,15 @@ import Icon from 'react-native-vector-icons/dist/MaterialIcons';
 function MyCart({ navigation, route }) {
     let obj = [route.params]
 
-    let [disabled, setDisabled] = useState(true)
     let [value, setValue] = useState(1)
+    let [price, setPrice] = useState([])
+    let [quantity, setQuantity] = useState([])
 
     let increase = () => {
         setValue(value + 1)
     }
     let decrease = () => {
-        if (value >= 1) {
-            setDisabled(false)
-            setValue(value - 1)
-        }
-        else {
+        if (value > 1) {
             setValue(value - 1)
         }
     }
@@ -29,14 +26,15 @@ function MyCart({ navigation, route }) {
                         <View style={{ width: '25%', alignItems: 'center', justifyContent: 'center' }}>
                             <Image source={{ uri: e.image }} resizeMode='stretch' style={{ height: 70, width: 70 }} />
                         </View>
-                        <View style={{ justifyContent: 'center',  width: '55%', paddingHorizontal: 10 }}>
+                        <View style={{ justifyContent: 'center', width: '55%', paddingHorizontal: 10 }}>
                             <Text style={{ color: 'black', fontSize: 14 }}>{e.title.slice(0, 35) + (e.title.length > 35 ? ' ....' : "")}</Text>
-                            <Text style={{ color: 'black', fontWeight: 'bold', marginTop:5 }}>$ {e.price}</Text>
+                            <Text style={{ color: 'black', fontWeight: 'bold', marginTop: 2 }}>$ {e.price}</Text>
+                            <Text style={{ color: 'black', marginTop: 5, borderTopWidth: 1 }}>{e.price} * {value} = $ {e.price * value}</Text>
                         </View>
-                        <View style={{ justifyContent: 'center', alignItems: 'center',  width: '20%' }}>
+                        <View style={{ justifyContent: 'center', alignItems: 'center', width: '20%' }}>
                             <Icon onPress={increase} name="add" size={15} color="white" style={{ textAlign: 'center', backgroundColor: 'black', width: '100%', padding: 3, backgroundColor: 'black' }} />
                             <Text style={{ fontSize: 18, color: 'black' }}>{value}</Text>
-                            <Icon disabled={disabled} onPress={decrease} name="remove" size={15} color="white" style={{ textAlign: 'center', backgroundColor: 'black', width: '100%', padding: 3, backgroundColor: 'black' }} />
+                            <Icon onPress={decrease} name="remove" size={15} color="white" style={{ textAlign: 'center', backgroundColor: 'black', width: '100%', padding: 3, backgroundColor: 'black' }} />
                         </View>
                     </View>
                 </View>
