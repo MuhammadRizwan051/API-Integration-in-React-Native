@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Text, View, ActivityIndicator, TextInput, TouchableOpacity, Image, ScrollView } from 'react-native'
+import { Text, View, ActivityIndicator, TextInput, TouchableOpacity, Image, ScrollView, Button } from 'react-native'
 import { GlobalStyle } from '../GlobalStyle'
 
 
@@ -41,6 +41,15 @@ function Home({ navigation }) {
         navigation.navigate('Product', e)
     }
 
+    let data = []
+    let addToCart = (e) => {
+        data.push(e)
+        console.log(data)
+    }
+
+    // let checkMove = () => {
+    //     navigation.navigate('MyCart')
+    // }
 
     return (
         <>
@@ -88,6 +97,7 @@ function Home({ navigation }) {
                     {/* <> */}
                     {/* <Text style={{ marginTop: 25 }}>All Data</Text> */}
                     <ScrollView>
+                        <Button title='Check' onPress={() => navigation.navigate('MyCart', data)} />
                         <View style={{ backgroundColor: '#A5D3EB', width: '100%', height: '100%', flexWrap: 'wrap', flexDirection: 'row', }}>
                             {/* <Text style={GlobalStyle.headingAllItems}>All Items</Text> */}
                             {myData && myData.map((e, i) => (
@@ -112,6 +122,12 @@ function Home({ navigation }) {
                                             <Text style={[GlobalStyle.cardBodyPara, { textAlign: 'justify' }]}>{e.description}</Text> */}
                                             {/* <Text style={GlobalStyle.cardBodyHeadings}>Price</Text> */}
                                             <Text style={[GlobalStyle.cardBodyPara, { textAlign: 'center' }]}>{e.price} USD</Text>
+                                            <TouchableOpacity
+                                                style={{ width: '100%' }}
+                                                onPress={() => addToCart(e)}
+                                            >
+                                                <Text style={{ color: 'black', backgroundColor: 'white', textAlign: 'center' }}>Add to Cart</Text>
+                                            </TouchableOpacity>
                                         </View>
                                     </View>
                                 </TouchableOpacity>

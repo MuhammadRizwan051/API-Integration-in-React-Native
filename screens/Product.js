@@ -5,6 +5,11 @@ import Icon from 'react-native-vector-icons/dist/MaterialIcons';
 
 function Product({ navigation, route }) {
     let obj = route.params
+
+    // let arr = []
+    // arr.push(obj)
+    // console.log(arr)
+
     return (
         <>
             <ScrollView style={{ height: '100%', marginTop: 10, marginBottom: 10 }}>

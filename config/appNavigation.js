@@ -30,6 +30,14 @@ const TabNavigator = () => (
         </View>
       )
     }} />
+    <Tab.Screen name="MyCart" component={MyCart} options={{
+      tabBarIcon: ({ focused }) => (
+        <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+          <Image style={{ width: 22, height: 22, tintColor: focused ? 'royalblue' : 'black' }} source={{ uri: 'https://cdn-icons-png.flaticon.com/512/2838/2838838.png' }} />
+          <Text style={{ marginTop: 1, fontSize: 12, color: focused ? 'royalblue' : 'black' }}>CART</Text>
+        </View>
+      )
+    }} />
     <Tab.Screen name="SignIn" component={SignIn} options={{
       tabBarIcon: ({ focused }) => (
         <View style={{ alignItems: 'center', justifyContent: 'center' }}>
