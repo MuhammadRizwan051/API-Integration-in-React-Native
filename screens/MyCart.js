@@ -17,6 +17,7 @@ function MyCart({ navigation, route }) {
     let obj = route.params
     console.log(route.params)
     console.log(obj)
+    
     return (
         <>
             <View style={{ backgroundColor: '#256D85', height: '100%', paddingVertical: 20, paddingHorizontal: 15 }}>
