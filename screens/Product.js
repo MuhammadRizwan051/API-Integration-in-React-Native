@@ -1,14 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native'
 import Icon from 'react-native-vector-icons/dist/MaterialIcons';
 
 
+
+
 function Product({ navigation, route }) {
+    let [product, setProduct] = useState()
     let obj = route.params
 
-    // let arr = []
-    // arr.push(obj)
-    // console.log(arr)
+    let addInCart = (e) => {
+        console.log('Product Added')
+        setProduct(e)
+    }
+    console.log(product)
 
     return (
         <>
@@ -30,7 +35,7 @@ function Product({ navigation, route }) {
                         <Icon name="star" size={25} color="white" />
                     </View>
                     <View style={{ marginBottom: 50, marginTop: 20 }}>
-                        <TouchableOpacity onPress={() => navigation.navigate('My Cart', obj)} style={{ backgroundColor: 'white', paddingVertical: 10, borderRadius: 15, alignItems: 'center' }}>
+                        <TouchableOpacity onPress={() => addInCart(obj)} style={{ backgroundColor: 'white', paddingVertical: 10, borderRadius: 15, alignItems: 'center' }}>
                             <Text style={{ color: 'black', fontWeight: 'bold', fontSize: 18, fontStyle: 'italic', fontFamily: 'sans-serif' }}>Add to Cart</Text>
                         </TouchableOpacity>
                     </View>

@@ -17,13 +17,27 @@ function MyCart({ navigation, route }) {
     let obj = route.params
     console.log(route.params)
     console.log(obj)
-    
+
+
+    let clear = () => {
+        route.params = []
+        console.log(clear)
+    }
+
+
     return (
         <>
             <View style={{ backgroundColor: '#256D85', height: '100%', paddingVertical: 20, paddingHorizontal: 15 }}>
                 {obj.length > 0 ? (
                     <>
-                        <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 18 }}>ORDER</Text>
+                        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+                            <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 18 }}>ORDER</Text>
+                            {/* <View> */}
+                            <TouchableOpacity onPress={() => clear}>
+                                <Text style={{ color: 'white' }}>Clear Cart</Text>
+                            </TouchableOpacity>
+                            {/* </View> */}
+                        </View>
                         <View style={{ maxHeight: '62%', paddingVertical: 10, justifyContent: 'center', alignItems: 'center' }}>
                             <ScrollView>
                                 {obj && obj.map((e, i) => (
