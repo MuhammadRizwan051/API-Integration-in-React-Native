@@ -17,10 +17,10 @@ function MyCart({ navigation, route }) {
             const receiveData = JSON.parse(jsonValue)
             const arr = []
             arr.push(receiveData)
-            setData([...data, arr])
+            setData(arr)
             console.log('local', JSON.parse(jsonValue))
         } catch (e) {
-            // error reading value
+            console.log(e)
         }
     }
     console.log('data', data)
