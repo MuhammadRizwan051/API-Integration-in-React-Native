@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native'
 import Icon from 'react-native-vector-icons/dist/MaterialIcons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useIsFocused } from '@react-navigation/native';
+// import { useIsFocused } from '@react-navigation/native';
 
 function MyCart({ navigation, route }) {
     let [value, setValue] = useState(1)
     let [data, setData] = useState([])
-    const isFocused = useIsFocused()
+    // const isFocused = useIsFocused()
 
 
     const getData = async () => {
@@ -15,9 +15,9 @@ function MyCart({ navigation, route }) {
             const jsonValue = await AsyncStorage.getItem('orderProduct')
             // return jsonValue != null ? JSON.parse(jsonValue) : null;
             const receiveData = JSON.parse(jsonValue)
-            const arr = []
-            arr.push(receiveData)
-            setData(arr)
+            // const arr = []
+            // arr.push(receiveData)
+            setData([...data,receiveData])
             console.log('local', JSON.parse(jsonValue))
         } catch (e) {
             // error reading value
@@ -27,7 +27,7 @@ function MyCart({ navigation, route }) {
 
     useEffect(() => {
         getData()
-    }, [isFocused])
+    }, [])
 
     let increase = () => {
         setValue(value + 1)
