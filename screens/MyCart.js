@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native'
 import Icon from 'react-native-vector-icons/dist/MaterialIcons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-// import { useIsFocused } from '@react-navigation/native';
+import { useIsFocused } from '@react-navigation/native';
 
 function MyCart({ navigation, route }) {
     let [value, setValue] = useState(1)
     let [data, setData] = useState([])
-    // const isFocused = useIsFocused()
+    const isFocused = useIsFocused()
 
 
     const getData = async () => {
@@ -17,7 +17,7 @@ function MyCart({ navigation, route }) {
             const receiveData = JSON.parse(jsonValue)
             // const arr = []
             // arr.push(receiveData)
-            setData([...data,receiveData])
+            setData([...data, receiveData])
             console.log('local', JSON.parse(jsonValue))
         } catch (e) {
             // error reading value
@@ -27,7 +27,7 @@ function MyCart({ navigation, route }) {
 
     useEffect(() => {
         getData()
-    }, [])
+    }, [isFocused])
 
     let increase = () => {
         setValue(value + 1)
@@ -37,11 +37,6 @@ function MyCart({ navigation, route }) {
             setValue(value - 1)
         }
     }
-
-    // let obj = route.params
-    // console.log(route.params)
-    // console.log(obj)
-
 
     let clear = () => {
         route.params = []
@@ -56,16 +51,13 @@ function MyCart({ navigation, route }) {
                     <>
                         <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
                             <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 18 }}>ORDER</Text>
-                            {/* <View> */}
                             <TouchableOpacity onPress={() => clear}>
                                 <Text style={{ color: 'white' }}>Clear Cart</Text>
                             </TouchableOpacity>
-                            {/* </View> */}
                         </View>
                         <View style={{ maxHeight: '62%', paddingVertical: 10, justifyContent: 'center', alignItems: 'center' }}>
                             <ScrollView>
                                 {data && data.map((e, i) => (
-                                    // <View key={i} style={{ paddingVertical: 20, paddingHorizontal: 10, }}>
                                     <View key={i} style={{ marginBottom: 10, borderRadius: 15, flexDirection: 'row', paddingVertical: 10, paddingHorizontal: 10, backgroundColor: 'white' }}>
                                         <View style={{ width: '25%', alignItems: 'center', justifyContent: 'center' }}>
                                             <Image source={{ uri: e.image }} resizeMode='stretch' style={{ height: 70, width: 70 }} />
@@ -81,7 +73,6 @@ function MyCart({ navigation, route }) {
                                             <Icon onPress={decrease} name="remove" size={15} color="white" style={{ textAlign: 'center', backgroundColor: 'black', width: '100%', padding: 3, backgroundColor: 'black' }} />
                                         </View>
                                     </View>
-                                    // </View>
                                 ))}
                             </ScrollView>
                         </View>
