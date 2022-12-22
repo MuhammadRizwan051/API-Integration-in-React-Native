@@ -1,19 +1,28 @@
 import React, { useState } from 'react'
 import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native'
 import Icon from 'react-native-vector-icons/dist/MaterialIcons';
-
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 function Product({ navigation, route }) {
-    let [product, setProduct] = useState()
+    // let [product, setProduct] = useState()
     let obj = route.params
 
-    let addInCart = (e) => {
-        console.log('Product Added')
-        setProduct(e)
+    let addToCart = (e) => {
+        // console.log('Product Added')
+        const storeData = async () => {
+            try {
+                const jsonValue = JSON.stringify(obj)
+                await AsyncStorage.setItem('orderProduct', jsonValue)
+                console.log('item', jsonValue)
+            } catch (e) {
+                console.log(e)
+            }
+        }
+        storeData()
+        // setProduct(e)
     }
-    console.log(product)
+    // console.log(product)
 
     return (
         <>
@@ -35,7 +44,7 @@ function Product({ navigation, route }) {
                         <Icon name="star" size={25} color="white" />
                     </View>
                     <View style={{ marginBottom: 50, marginTop: 20 }}>
-                        <TouchableOpacity onPress={() => addInCart(obj)} style={{ backgroundColor: 'white', paddingVertical: 10, borderRadius: 15, alignItems: 'center' }}>
+                        <TouchableOpacity onPress={() => addToCart(obj)} style={{ backgroundColor: 'white', paddingVertical: 10, borderRadius: 15, alignItems: 'center' }}>
                             <Text style={{ color: 'black', fontWeight: 'bold', fontSize: 18, fontStyle: 'italic', fontFamily: 'sans-serif' }}>Add to Cart</Text>
                         </TouchableOpacity>
                     </View>
