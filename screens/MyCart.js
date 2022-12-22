@@ -15,9 +15,9 @@ function MyCart({ navigation, route }) {
             const jsonValue = await AsyncStorage.getItem('orderProduct')
             // return jsonValue != null ? JSON.parse(jsonValue) : null;
             const receiveData = JSON.parse(jsonValue)
-            // const arr = []
-            // arr.push(receiveData)
-            setData([...data, receiveData])
+            const arr = []
+            arr.push(receiveData)
+            setData([...data, arr])
             console.log('local', JSON.parse(jsonValue))
         } catch (e) {
             // error reading value
