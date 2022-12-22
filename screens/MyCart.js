@@ -1,9 +1,33 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native'
 import Icon from 'react-native-vector-icons/dist/MaterialIcons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useIsFocused } from '@react-navigation/native';
 
 function MyCart({ navigation, route }) {
     let [value, setValue] = useState(1)
+    let [data, setData] = useState([])
+    const isFocused = useIsFocused()
+
+
+    const getData = async () => {
+        try {
+            const jsonValue = await AsyncStorage.getItem('orderProduct')
+            // return jsonValue != null ? JSON.parse(jsonValue) : null;
+            const receiveData = JSON.parse(jsonValue)
+            const arr = []
+            arr.push(receiveData)
+            setData(arr)
+            console.log('local', JSON.parse(jsonValue))
+        } catch (e) {
+            // error reading value
+        }
+    }
+    console.log('data', data)
+
+    useEffect(() => {
+        getData()
+    }, [isFocused])
 
     let increase = () => {
         setValue(value + 1)
@@ -14,9 +38,9 @@ function MyCart({ navigation, route }) {
         }
     }
 
-    let obj = route.params
-    console.log(route.params)
-    console.log(obj)
+    // let obj = route.params
+    // console.log(route.params)
+    // console.log(obj)
 
 
     let clear = () => {
@@ -28,7 +52,7 @@ function MyCart({ navigation, route }) {
     return (
         <>
             <View style={{ backgroundColor: '#256D85', height: '100%', paddingVertical: 20, paddingHorizontal: 15 }}>
-                {obj.length > 0 ? (
+                {data.length > 0 ? (
                     <>
                         <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
                             <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 18 }}>ORDER</Text>
@@ -40,7 +64,7 @@ function MyCart({ navigation, route }) {
                         </View>
                         <View style={{ maxHeight: '62%', paddingVertical: 10, justifyContent: 'center', alignItems: 'center' }}>
                             <ScrollView>
-                                {obj && obj.map((e, i) => (
+                                {data && data.map((e, i) => (
                                     // <View key={i} style={{ paddingVertical: 20, paddingHorizontal: 10, }}>
                                     <View key={i} style={{ marginBottom: 10, borderRadius: 15, flexDirection: 'row', paddingVertical: 10, paddingHorizontal: 10, backgroundColor: 'white' }}>
                                         <View style={{ width: '25%', alignItems: 'center', justifyContent: 'center' }}>
